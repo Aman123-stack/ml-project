@@ -19,17 +19,15 @@ def save_object(file_path,obj):
 
 
 
-def evaluate_models(X_train, y_train,X_test,y_test,models,param):
+def evaluate_models(X_train, y_train,X_test,y_test,models):
     try:
         report = {}
 
         for i in range(len(list(models))):
             model = list(models.values())[i]
-            para=param[list(models.keys())[i]]
 
 
-            #model.fit(X_train, y_train)  # Train model
-
+            model.fit(X_train, y_train)  # Train model
             y_train_pred = model.predict(X_train)
 
             y_test_pred = model.predict(X_test)
